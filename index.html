@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='js/tween.js'></script>
+    <script type="text/javascript" src='js/jquery-2.0.3.js'></script>
+    <script type="text/javascript" src='js/mario.js'></script>
+    <script type="text/javascript" src='js/page234.js'></script>
+    <script type="text/javascript" src="js/tween2.js"></script>
+    <script type="text/javascript" src="js/mTweenPlus.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/mario work.css">
+</head>
+<body>
+    <div id='can' style='position:absolute;left:100px;top:200px;z-index:20; '>
+        <canvas id='canvas' ></canvas>
+    </div>
+    
+    <div id='box'>
+
+        
+        <div id='wrap'>
+            
+            <div class='wall' call='about'>
+                
+                <div id='print'>
+                    <div class='text-line' style='margin-bottom:10px;'></div>
+                    <div class='text-line'></div>
+                    <div class='text-line'></div>
+                    <div class='text-line'></div>
+                </div>
+                <div id='sunshine'>
+                    <span id='sunshine-pic'></span>
+                    <span id='mount'></span>
+                </div>
+                <div id='building'>
+                    <span class='build'></span>
+                    <span class='build'></span>
+                    <span class='build'></span>
+                    <span class='build'></span>
+                </div>
+                <div id='sha'>
+                    <span id='girl'></span>
+                </div>
+
+            </div>
+            <div class='wall' call='skill'>
+                <div class='content'>
+                    <div id='title'>skill</div>
+                    <div id='main'>
+                        <div id='say-about'>
+                            <ul id='ski'>
+                                <li style='transform: scale(.8);'>
+                                    <span style='background:url(img/css2.png); no-repeat;opacity:1;'></span>
+                                </li style='transform: scale(1);'>
+                                <li >
+                                    <span style='background:url(img/html2.png); no-repeat;opacity:0;'></span>
+                                </li>
+                                <li style='transform: scale(.8);'>
+                                    <span style='background:url(img/js2.png); no-repeat;opacity:1;'></span>
+                                </li>
+                                <div id='prev' class='pic-btn'>
+                                    <span></span>
+                                </div>
+                                <div id='next' class='pic-btn'>
+                                    <span></span>
+                                </div>
+                            </ul>
+                            <div id='mariodd'></div>
+                            <ul id='cloud'>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div id='say-pic'>
+                            <div id='shelf'></div>
+                            <div class='clearfix' >
+                                <div id='hand'>
+                                    <div id='pull'></div>
+                                    <div id='dot'></div>
+                                </div>
+                                <ul style='float:left;'>
+                                    <li>
+                                        <div class='area' style='background:url(img/j1.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>90%</span>
+                                        </div>
+                                        <p class='area-text'>Photoshop</p>
+                                    </li>
+                                    <li>
+                                        <div class='area' style='background:url(img/j2.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem2.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>85%</span>
+                                        </div>
+                                        <p class='area-text'>Css</p>
+                                    </li>
+                                    <li>
+                                        <div class='area' style='background:url(img/j3.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem3.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>80%</span>
+                                        </div>
+                                        <p class='area-text'>Html</p>
+                                    </li>
+                                    <li>
+                                        <div class='area' style='background:url(img/j4.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem4.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>75%</span>
+                                        </div>
+                                        <p class='area-text'>JavaScript</p>
+                                    </li>
+                                    <li>
+                                        <div class='area' style='background:url(img/j5.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem5.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>65%</span>
+                                        </div>
+                                        <p class='area-text'>Jquery</p>
+                                    </li>
+                                    <li>
+                                        <div class='area' style='background:url(img/j6.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem6.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>60%</span>
+                                        </div>
+                                        <p class='area-text'>Ajax</p>
+                                    </li>
+                                    <li>
+                                        <div class='area' style='background:url(img/j7.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem7.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>50%</span>
+                                        </div>
+                                        <p class='area-text'>React</p>
+                                    </li>
+                                    <li>
+                                        <div class='area' style='background:url(img/j8.png) no-repeat;background-size:100% 100%;'>
+                                            <span class='littleM' style='background:url(img/littlem8.png) no-repeat;background-size:100% 100%;'></span>
+                                            <span class='explain'>30%</span>
+                                        </div>
+                                        <p class='area-text'>Node</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id='bg-color'></div> 
+                <div id='bg-clolr2'></div>   
+            </div>
+            <div class='wall' call='project'>
+                <div class='content'>
+                    <div id='title'>project</div>
+                    <p class='title-say'>稳固的基石是一座大楼屹立不倒的关键，扎实的基础是一个人进步的着重点</p>
+                    <div id='my-project'>
+                        <ul id='list' class='clearfix'>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'>鼠标移动DIV消失图片显示</span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                   <span class='color-dot'></span>
+                                   <span class='color-dot'></span>
+                                   <span class='color-dot'></span>
+                                   <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="" target="_blank"></a>
+                                <span class='isText'>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='color-dot'></span>
+                                    <span class='isay'></span>
+                                </span>
+                            </li>
+                        </ul>
+                        <div id='scroll'>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <span id='green-pic'></span>
+            </div>
+            <div class='wall' call='contact'>
+                <div class='content'>
+                    <div id='title'>contact</div>
+                    <p class='title-say'>现处于离职状态，可随时与我联系</p>
+                    <div id='photoAndSay'>
+                        <div id='photo'>
+                            <span id='flower'></span>
+                            <div id='photoGroup'>
+                                <ul id='photoGo'>
+                                    <li>
+                                        <img src="img/girl1.jpg">
+                                    </li>
+                                    <li>
+                                        <img src="img/girl2.jpg">
+                                    </li>
+                                    <li>
+                                        <img src="img/girl3.jpg">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id='personSay'>
+                            <ul>
+                                <li>
+                                    <div style='color:#838383;'>QQ</div>
+                                    <div class='midd'></div>
+                                    <div>410732132</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>E-mail</div>
+                                    <div class='midd'></div>
+                                    <div>410732132@qq.com</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>手 机</div>
+                                    <div class='midd'></div>
+                                    <div>15236373971</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>状 态</div>
+                                    <div class='midd'></div>
+                                    <div>离职</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>籍 贯</div>
+                                    <div class='midd'></div>
+                                    <div>河南省驻马店</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>所在地</div>
+                                    <div class='midd'></div>
+                                    <div>北京</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>学 历</div>
+                                    <div class='midd'></div>
+                                    <div>专科</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>爱 好</div>
+                                    <div class='midd'></div>
+                                    <div>运动/游戏/阅读</div>
+                                </li>
+                                <li>
+                                    <div style='color:#838383;'>自我评价</div>
+                                    <div class='midd'></div>
+                                    <div>乐观向上，办事积极，学习能力强</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <span id='thanks'></span>
+            </div> 
+        </div>
+        <div id='start-show'>
+            <div id='par'>
+            	<div id='bag'>
+	            	<h2 id='logo'></h2>
+		        	<span id='bg'></span>
+            	</div>
+        		<span id='pic'></span>
+        		<div id='load'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+	       	</div>
+        </div>
+    </div>
+    <div id='nav'>
+        <div>
+            <span class='line'></span>
+            <span class='line'></span>
+            <span class='line'></span>
+        </div>
+    </div>
+    <div id='menu'>
+        <div id='qq'>
+            <span id='qq-pic'></span>
+            <span style='margin-right:30px;'>410732132</span>
+        </div>
+        <div id='em'>
+            <span id='em-pic'></span>
+            <span>410732132@qq.com</span>
+        </div>
+    </div>
+    <div id='left'>
+        <span id='left1'></span>
+        <span id='left2'></span>
+        <span id='where1'></span>
+    </div>
+    <div id='right'>
+        <span id='right1'></span>
+        <span id='right2'></span>
+        <span id='where2'></span>
+    </div>
+</body>
+</html>
+
