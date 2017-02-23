@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		a{
+			text-decoration:none;
+		}
+			.wrap{
+				width:600px;
+				height:500px;
+				border:1px solid #000000;
+			}
+			#select{
+				height:80px;
+				padding:10px;
+				font:20px/60px "微软雅黑";
+				border-bottom:1px solid #008000;
+			}
+			.list{
+				list-style:none;
+				margin:0;
+				padding:0;
+				padding:10px;
+				font:20px/60px "微软雅黑";
+			}
+		</style>
+	</head>
+	<body>
+		<section class="wrap">
+			<div id="select">
+				你的选择：
+			</div>
+			<ul class="list">
+				<li>
+					品牌：
+					<a href="javascript:;">华为</a>
+					<a href="javascript:;">小米</a>
+					<a href="javascript:;">步步高</a>
+					<a href="javascript:;">oppo</a>
+				</li>
+				<li>
+					价格：
+					<a href="javascript:;">500元</a>
+					<a href="javascript:;">600元</a>
+					<a href="javascript:;">700元</a>
+					<a href="javascript:;">800元</a>
+				</li>
+				<li>
+					手机特色：
+					<a href="javascript:;">防弹</a>
+					<a href="javascript:;">木质</a>
+					<a href="javascript:;">金属</a>
+					<a href="javascript:;">铝合金</a>
+				</li>
+				<li>
+					手机配置：
+					<a href="javascript:;">双核</a>
+					<a href="javascript:;">三核</a>
+					<a href="javascript:;">四核</a>
+					<a href="javascript:;">五核</a>
+				</li>
+			</ul>
+		</section>
+		<script>
+			(function(){
+				var oSelect=document.querySelector('#select');//获取下被添加内容的标签
+				var uls=document.querySelector('.list');//获取ul通过属性名
+				var oLi=uls.querySelectorAll('li');//获取ul下的一组li
+				var oA=uls.querySelectorAll('a');//获取每一个li下的a标签
+				var arr=[,,,];//创建一个空数组，我需要往数组添加四个元素，所以更明白就写了四个空对象，用逗号隔开，不写一样
+				
+				
+				for(var i=0;i<oLi.length;i++){//循环一下LI
+								oLi[i].index=i;//用自定义属性存储一下下标
+								//console.log(oLi[i].index)
+							}
+				for(var i=0;i<oA.length;i++){//每个a标签的循环
+						oA[i].onclick=function(){//当每个a标签被绑定点击事件的函数
+							//var _this=this;
+							var mark=document.createElement('mark');//创建一个mark标签，用来点击时给添加
+							var a=document.createElement('a');//在mark下创建一个a标签，但这时并不显示在页面
+							var pid=this.parentNode.index;//点击oA时记录一下当前是那个li下的a，存储下标
+							 //console.log(pid)
+							a.innerHTML="x";//给mark下的a加上一个删除符号，用来以后删除操作
+							a.href="javascript:;"//给a标签href属性赋一个javascript的值
+							a.onclick=function(){//给mark下的a标签删除mark标签时的函数操作
+								arr[pid]="";//当删除页面显示mark标签内容时也要删除添加的数组对应内容
+								oSelect.removeChild(mark);//删除页面上显示的mark内的内容
+							}//这个函数是生成后需要修改是才会发生的操作
+							arr[pid]=mark;//这是当给oA加点击事件是把生成的对应下标的mark标签赋值给数组对应的位置
+							oSelect.innerHTML="你的选择:";//每次修改oSelect对应的内容时都要对上一个清空操纵
+							mark.innerHTML=this.innerHTML;//只是点击对应的oA时把对应的内容赋值给对应的mark标签
+							mark.appendChild(a);//添加一个a标签到mark标签内并显示在页面
+							for(var i=0;i<arr.length;i++){//循环一下数组
+								if(arr[i]){//
+									oSelect.appendChild(arr[i]);//把数组内存放的oA点击事件生成的mark标签添加到页面
+								}
+							}
+							
+					}
+				}
+				
+			})()//函数自执行
+		</script>
+	</body>
+</html>

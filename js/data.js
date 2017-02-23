@@ -88,6 +88,6 @@ var href=[
 			'https://mariotry.github.io/gm1/',
 			'https://mariotry.github.io/gm2/',
 			'https://mariotry.github.io/gm3/',
-			'https://mariotry.github.io/vy/',
-			'https://mariotry.github.io/finalResume/'
+			'https://mariotry.github.io/vy/'
+			
 ];

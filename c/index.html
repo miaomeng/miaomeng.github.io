@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		input{
+			outline: none;
+			margin: 0;
+			border:none;
+		}
+		ul{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		p{
+			margin:0;
+			padding:0;
+		}
+		.clearfix:after{
+			content:"";display:block;clear:both;
+		}
+			.wrap{
+				width:237px;
+				height:421px;
+				margin:30px auto;
+				padding:87px 26px 86px; 
+				background:url(../img/04.png) no-repeat;
+			}
+			.pic{
+				width:237px;
+				height:421px;
+				position:relative;
+			}
+			.span{
+				float:left;
+				margin-right:5px;
+				width:24px;
+				height:24px;
+				padding:5px 3px;
+				border:1px solid #ded6e7;
+				border-radius:6px;
+			}
+			.cont{
+				float:left;
+				width:138px;
+				height:34px;
+				border:1px solid #ded6e7;
+				border-radius:6px;
+				font:16px/34px "微软雅黑";
+				
+			}
+			.button{
+				float:right;
+				width:55px;
+				height:34px;
+				font:bold 22px/34px "微软雅黑";
+				background:none;
+			}
+			.span img{
+				width:24px;
+				height:24px;
+				vertical-align:top;
+			}
+			.box{
+				height:360px;
+				width:227px;
+				padding:5px;
+				background:#eee;
+				overflow:auto;
+			}
+			.down{
+				position:absolute;
+				left:0;
+				bottom:0;
+				height:38px;
+				padding:7px 0 5px 3px;
+				border:1px solid #bdcec6;
+				background:#BDCEC6;
+			}
+			.div1{
+				margin-bottom:8px;
+			}
+			.div2{
+				margin-bottom:8px;
+			}
+			.pic2{
+				float:left;
+				margin-right:5px;
+				width:24px;
+				height:24px;
+			}
+			.img1{
+				/*float:right;*/
+				float:left;
+				padding:5px;
+				max-width:170px;
+				border-radius:6px;
+				background:#17dd46;
+				word-break:break-all;
+				font:16px/20px "微软雅黑";
+			}
+			.pic3{
+				float:right;
+				margin-left:5px;
+				width:24px;
+				height:24px;
+				
+			}
+			.img2{
+				/*float:left;*/
+				float:right;
+				padding:5px;
+				max-width:170px;
+				background:#BDCEC6;
+				border-radius:6px;
+				word-break:break-all;
+				font:16px/20px "微软雅黑";
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oBox=document.getElementById('box');
+				var oSpan=document.getElementById('span');
+				var olmg=document.getElementById('img');
+				var oTxt=document.getElementById('txt');
+				var oBtn=document.getElementById('btn');
+				
+				
+				oBtn.onclick=function(){
+					if(oTxt.value!==""){
+						if(isTab) {
+							oBox.innerHTML="<li class='div1 clearfix'>"+"<span class='pic2'>"+oSpan.innerHTML+"</span>"+"<p class='img1'>"+oTxt.value+"</p>"+"</li>"+oBox.innerHTML;
+							oTxt.value="";
+						}else{
+							oBox.innerHTML="<li class='div2 clearfix'>"+"<span class='pic3'>"+oSpan.innerHTML+"</span>"+"<p class='img2'>"+oTxt.value+"</p>"+"</li>"+oBox.innerHTML;
+							oTxt.value="";
+						};
+					};
+					
+				};
+				var isTab=false;
+				olmg.onclick=function(){
+					if(isTab){
+						olmg.src="../img/xiaolian.png";
+						
+					}else{
+						olmg.src="../img/xiaoliane2.png";
+					};
+					isTab=!isTab;
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="pic">
+				<ul class="box" id="box"></ul>
+				<div class="down">
+					<span class="span" id="span"><img src="../img/xiaolian.png" id="img"/></span>
+					<input type="text" id="txt" class="cont"/>
+					<input type="button" id="btn" class="button" value="发送"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

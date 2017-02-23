@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body{
+			margin:0;
+		}
+		input{
+			outline:none;
+		}
+		.wrap{
+			width:600px;
+			height:400px;
+			margin:30px auto;
+			background:#66677C url('img/feiji.png') no-repeat;
+			border:2px solid #2FA8EC;
+			position:relative;
+			overflow:auto;
+		}
+		.head{
+			width:120px;
+			height:38px;
+			border:1px solid #eee;
+			background:#ccc;
+			margin-bottom:10px;
+		}
+		.head a{
+			display:block;
+			font:16px/38px "微软雅黑";
+			color:#000;
+			text-decoration:none ;
+		}
+		.head span{
+			float:left;
+			margin-left:2px;
+		}
+		.close{
+			width:40px;
+			height:40px;
+			position:absolute;
+			top:5px;
+			right:5px;
+			background:url('img/huishouzhan.png') no-repeat;
+		}
+		#box{
+			height:330px;
+			padding:10px 20px 10px;
+			background:#BDCEC6;
+			position:relative;
+			overflow:auto;
+			
+		}
+		.file{
+			float:left;
+			width:80px;
+			height:60px;
+			margin:2px 8px 2px 0;
+			position:relative;
+			left:0;
+			top:0;
+			background:rgba(0,0,0,0);
+			border:1px solid transparent;
+			
+		}
+		.chick{
+			position:absolute;
+			left:0;
+			top:0;
+			display:none;
+		}
+		#box .pic{
+			display:block;
+			width:40px;
+			height:30px;
+			position:absolute;
+			left:20px;
+			top:10px;
+			cursor: pointer;
+			background:url('img/a1.png') no-repeat;
+		}
+		.text{
+			width:60px;
+			position:absolute;
+			left:10px;
+			top:38px;
+			font:12px/20px "微软雅黑";
+			text-align:center;
+			white-space: nowrap;
+			text-overflow:ellipsis;
+			overflow:hidden;
+		}
+		.txt{
+			width:60px;
+			position:absolute;
+			left:10px;
+			top:38px;
+			font:12px/18px "微软雅黑";
+			text-align:center;
+			display:none;
+		}
+		.active{
+			background:rgba(139, 225, 220, .3);
+			border:1px solid #00CCFF;
+		}
+		 .active .chick{
+			display:block;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.querySelector('#box');
+			var oA=document.querySelector('a');
+			var delet=document.querySelector('.close');
+			var arr=[];
+			
+		oA.onclick=function(){
+			var div=document.createElement('div');
+			var pic=document.createElement('span');
+			var chick=document.createElement('input');
+			var text=document.createElement('em');
+			var txt=document.createElement('input');
+			var names=getName();//声明个变量存储下return的值（getName()是没文件夹起名的函数）
+			
+			
+			pic.className="pic";
+			chick.className="chick";
+			chick.type="checkbox";
+			text.className="text";
+			txt.className="txt";
+			txt.type="text";
+			div.className="file";
+			div.nameIndex=names.index;//他的名字在数组中存的是第几位
+			
+			text.innerHTML=names.name;//每次返回名字
+			div.appendChild(chick);
+			div.appendChild(text);
+			div.appendChild(pic);
+			div.appendChild( txt);
+			oBox.appendChild(div);
+			
+			
+			
+				div.onmouseover=function(){
+					this.className="file active";
+				}
+				div.onmouseout=function(){
+					if(!chick.checked){
+						this.className="file";
+					}
+			}
+			text.onclick=function(){
+				txt.style.display="block";
+				txt.value=text.innerHTML;
+				txt.focus();
+				
+			}
+			txt.onblur=function(){
+				txt.style.display="none";
+				if(txt.value==""){
+					txt.value=text.innerHTML;
+				}else{
+					text.innerHTML=txt.value;
+				}
+					
+			}
+			
+		}
+		delet.onclick=function(){
+				
+				/*for(var i=0;i<oBox.children.length;i++){
+					if(oBox.children[i].className=="file active"){
+						oBox.removeChild(oBox.children[i]);
+						i--;
+					}
+				}*/
+				
+				for(var i=oBox.children.length-1;i>=0;i--){
+					if(oBox.children[i].className=="file active"){
+						arr[oBox.children[i].nameIndex] = "";
+						oBox.removeChild(oBox.children[i]);
+					}
+				}
+				
+				
+		}
+		function getName(){
+			var name="新建文件";//文件夹名字
+			var nub = 0; //这个名字存在数组中第几位
+			if(arr.length==0||arr[0]==""){//开始判断数组，如果数组长度为零，说明数组内没有创建文件夹
+				arr[0]=name;//这时候就把创建第一个文件夹传到数组里
+				return {name:name,index:nub};//然后把这个对象返回到oA点击函数内
+			}
+			/* 查找数组中哪位是空的，再创建文件夹时先的把空这位给补上 */
+			for(var i = 0; i < arr.length; i++){//循环数组内每一项
+				if(arr[i] == ""){//判断如果有一个数组位置为空
+					name += (i+1);//创建的文件就等于“新建文件”+(i+1);因为文件夹是从1，2，3开始的
+					arr[i] = name;//就把这个文件夹名字赋值给数组i
+					return {name:name,index:i};//把创建的这个文件夹返回给页面
+				}//这个for循环是在数组内有删除时才去创建补位	
+			}
+			/* 依次向后进行排序 */
+			name += (arr.length+1);//这是创建是如果数组内已有文件夹，就向后继续添加
+			arr.push(name);
+			return {name:name,index:arr.length-1};
+	
+		}
+			
+			
+	}
+	</script>
+	</head>
+	<body>	
+		<section class="wrap">
+		<div class="head">
+		<a href="javascript:;">
+			<span><img src="img/folder_new.png"/></span>新建文件夹</a>
+		</div>
+		<span class="close"></span>
+		<div id="box">
+			<!--<div class="file">
+				<span class="pic"></span>
+				<lable></lable><input type="checkbox" class="chick"><lable></lable>
+				<em class="text">新建文件夹</em>
+				<input type="checkbox" class="txt">
+			</div>-->
+		</div>
+		</section>
+	</body>
+	<script src="js/move.js"></script>
+</html>

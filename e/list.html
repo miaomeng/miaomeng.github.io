@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>公司信息</title>
+    <style>
+    body,
+    ul,
+    li,
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    .wrap {
+        display: flex;
+        padding: 40px 10px;
+        box-sizing: border-box;
+    }
+    
+    .left {
+        width: 30%;
+        height: 380px;
+        border-right: 1px solid #B3B3B3;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        padding-right: 36px;
+        box-sizing: border-box;
+    }
+    
+    .left h2 {
+        width: 160px;
+        font: 24px/20px Arial;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+    
+    .nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .nav .nav_i {
+        display: block;
+        width: 160px;
+        height: 30px;
+        background: #ccc;
+        text-align: center;
+        margin-bottom: 20px;
+        font: 14px/30px Arial;
+        cursor: pointer;
+    }
+    
+    .nav .nav_i.active {
+        background: #78B7FF;
+        color: #fff;
+    }
+    
+    .right {
+        padding-left: 36px;
+        box-sizing: border-box;
+    }
+    
+    .info {
+        width: 100%;
+        height: 40px;
+        font: 20px/40px Arail;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    
+    .list {
+        width: 600px;
+    }
+    .head {
+        font: 18px/20px Arial;
+        height: 20px;
+        font-weight: bold;
+        color: #65BAFF;
+        margin-bottom: 20px;
+    }
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+    }
+    .content ul li {
+        margin: 4px;
+    }
+    .other {
+        font-size: 14px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="left">
+            <h2>招贤纳士</h2>
+            <nav class="nav">
+                <!-- <span class="nav_i active">社会招聘</span>
+				<span class="nav_i">校园招聘</span> -->
+            </nav>
+        </div>
+        <div class="right">
+            <div class="info"><img src="img/shzp.gif" alt=""></div>
+            <div class="list">
+                <h2 class="head">{{zw}}</h2>
+                <div class="content">
+                    <ul class="l">
+                        <li>招聘公司：{{gs}}>></li>
+                        <li>职位性质：{{gz}}</li>
+                        <li>工作经验：{{jy}}</li>
+                        <li>招聘人数：{{rs}}人</li>
+                        <li>发布日期：{{sj}}</li>
+                    </ul>
+                    <ul class="r">
+                        <li>公司性质：{{xz}}</li>
+                        <li>工作地点：{{dd}}</li>
+                        <li>学历要求：{{xl}}</li>
+                        <li>薪资待遇：{{dy}}</li>
+                        <li>招聘类型：{{lx}}</li>
+                    </ul>
+                </div>
+                <div class="other">
+                    <!-- <dl>
+                        <dt>岗位要求：</dt>
+                        <dd>1.计算机或相关专业本科以上学历；</dd>
+                        <dd>2.从事软件测试工作3年及以上；</dd>
+                        <dd>3.具备良好的沟通能力和快速学习能力；</dd>
+                        <dd>4.精通测试策略和方法、测试用例设计；</dd>
+                        <dd>5.熟悉DB2、AIX等平台的基本操作；</dd>
+                        <dd>6.具备2年以上金融IT行业经验，特别是有金融行业相关业务的测试或者开发工作经验者优先。</dd>
+                    </dl>
+                    <dl>
+                      <dt>工作职责：</dt>
+                      <dd>从事计算机软件的测试工作。</dd>
+                    </dl> -->
+                </div>
+                <p class="email">有意者请投递简历至 {{email}}</p>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script>
+    (function() {
+        //------------------------------------------------
+        var search = window.location.search.substr(1);
+        var lx = getSearchValue('s') || 'sh';
+
+        var hash = window.location.hash.substr(1).split('=')[1];
+
+        var data = aData[lx].text[hash - 1];
+        console.log(data);
+        //------------------------------------------------
+        leftList();
+        rightImg();
+        rightHead();
+        rightContent();
+        rightOther();
+        rightEmail();
+        //------------------------------------------------
+        //左侧列表
+        function leftList() {
+            var leftList = document.querySelector('.left .nav');
+            var childs = leftList.children;
+
+            aData.list.forEach((item, i) => {
+                var span = document.createElement('span');
+                span.className = 'nav_i';
+                span.innerHTML = item.text;
+                span.onclick = function() {
+                    window.location = `index.html?s=${item.lx}`;
+                };
+                leftList.appendChild(span);
+            });
+
+            if (search) {
+                aData.list.forEach((item, i) => {
+                    if (getSearchValue('s') == item.lx) {
+                        childs[i].className = 'nav_i active';
+                    }
+                });
+            } else {
+                childs[0].className = 'nav_i active';
+            }
+        }
+        
+        //右侧内容
+        function rightImg(){
+            var img = document.querySelector('.info img');
+            img.src = aData[lx].img;
+        }
+        function rightHead(){
+            var head = document.querySelector('.head');
+            head.innerHTML = data.zw;
+        }
+        function rightContent(){
+            var content = document.querySelector('.content');
+            var _html = content.innerHTML;
+
+            _html = _html.replace(/{{gs}}/,data.gs)//把页面的标注替换成数据中的对应项
+                .replace(/{{gz}}/,data.gz)//把页面的标注替换成数据中的对应项
+                .replace(/{{jy}}/,data.jy)//把页面的标注替换成数据中的对应项
+                .replace(/{{rs}}/,data.rs)//把页面的标注替换成数据中的对应项
+                .replace(/{{sj}}/,aData.date(data.sj,1))
+                .replace(/{{xz}}/,data.xz)//把页面的标注替换成数据中的对应项
+                .replace(/{{dd}}/,data.dd)//把页面的标注替换成数据中的对应项
+                .replace(/{{xl}}/,data.xl)
+                .replace(/{{dy}}/,data.dy)//把页面的标注替换成数据中的对应项
+                .replace(/{{lx}}/,data.lx);
+
+            content.innerHTML = _html;
+        }
+
+        function rightOther(){
+            var other = document.querySelector('.other');
+            data.info.forEach((item,i)=>{
+                console.log(1);
+                var dl = document.createElement('dl');
+                var dt = document.createElement('dt');
+                dt.innerHTML = item.t;
+                dl.appendChild(dt);
+                item.l.forEach((item,i)=>{
+                    var dd = document.createElement('dd');
+                    dd.innerHTML = item;
+                    dl.appendChild(dd);
+                });
+                other.appendChild(dl)
+            });
+        }
+
+        function rightEmail(){
+            var email = document.querySelector('.email');
+            email.innerHTML = email.innerHTML.replace(/{{email}}/,aData.email);
+        }
+
+        // 获取search列表的值
+        function getSearchValue(key) {
+            if (!search) {
+                console.log('aaa');
+                return false;
+            }
+            if (search.indexOf('&') != -1) {
+                var arr = search.split('&');
+                arr.forEach((item, i) => {
+                    var arr = item.split('=');
+                    if (arr[0] == key) {
+                        return arr[1];
+                    }
+                });
+            } else {
+                var arr = search.split('=');
+                if (arr[0] == key) {
+                    return arr[1];
+                }
+            }
+            return false;
+        }
+    })()
+    </script>
+</body>
+
+</html>
